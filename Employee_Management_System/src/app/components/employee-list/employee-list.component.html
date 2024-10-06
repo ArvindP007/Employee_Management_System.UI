@@ -1,0 +1,57 @@
+<div class="col mb-4 mt-4">
+    <button type="button" class="btn btn-sm btn-success m-1" (click)="addEmployee()">
+        <i class="bi bi-person-add"></i> Add New Employee
+    </button>
+</div>
+
+<!-- <div class="col mb-4">
+    <input type="text" class="form-control" placeholder="Search contacts..." [(ngModel)]="searchText" />
+</div> -->
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <!-- <th scope="col">Id</th> -->
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Department</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <!-- <th scope="row">{{employee.id}}</th> -->
+            <td>{{employee.name}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.phone}}</td>
+            <td>{{employee.department}}</td>
+            <!-- <td>
+                <button type="button" class="btn btn-sm btn-primary">Edit</button>
+            </td> -->
+            <td>
+                <button type="button" class="btn btn-sm btn-primary" (click)="editEmployee(employee)"> <i
+                        class="bi bi-pencil-fill"></i> Edit</button>
+            </td>
+            <!-- <td>
+                <button (click)="deleteEmployee(employee.id)" type="button" class="btn btn-sm btn-danger">Delete</button>
+            </td> -->
+             
+            <td>
+                <button (click)="deleteEmployee(employee.id)" type="button" class="btn btn-sm btn-danger m-1"> 
+                    <i class="bi bi-trash3"></i> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<button type="button" routerLink="/home" class="btn btn-outline-primary">Back</button>
+
+<app-confirmation-dialog></app-confirmation-dialog>
+<app-edit-employee-dialog></app-edit-employee-dialog>
+
+
+

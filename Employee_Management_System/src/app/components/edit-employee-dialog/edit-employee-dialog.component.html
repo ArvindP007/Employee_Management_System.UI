@@ -1,0 +1,61 @@
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" #modal>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ data?.title }}</h5>
+        </div>
+  
+        <div class="modal-body">
+          <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-2">
+              <label for="firstName">Name:</label>
+              <input type="text" class="form-control" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+              <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                <div *ngIf="f['name'].errors?.['required']">Name is required</div>
+              </div>
+            </div>
+
+            <div class="form-group mb-2">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+              <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                <div *ngIf="f['email'].errors?.['required']">Email is required</div>
+                <div *ngIf="f['email'].errors?.['email']">Invalid email format</div>
+              </div>
+            </div>
+  
+            <div class="form-group mb-2">
+              <label for="phone">Phone:</label>
+              <input type="number" class="form-control" formControlName="phone" [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }" />
+              <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
+                <div *ngIf="f['phone'].errors?.['required']">Phone is required</div>
+              </div>
+            </div>
+  
+            <div class="form-group mb-2">
+              <label for="salary">Salary:</label>
+              <input type="number" class="form-control" formControlName="salary" [ngClass]="{ 'is-invalid': submitted && f['salary'].errors }" />
+              <div *ngIf="submitted && f['salary'].errors" class="invalid-feedback">
+                <div *ngIf="f['salary'].errors?.['required']">Salary is required</div>
+              </div>
+            </div>
+  
+            <div class="form-group mb-2">
+              <label for="department">Department:</label>
+              <input type="text" class="form-control" formControlName="department" [ngClass]="{ 'is-invalid': submitted && f['department'].errors }" />
+              <div *ngIf="submitted && f['department'].errors" class="invalid-feedback">
+                <div *ngIf="f['department'].errors?.['required']">Department is required</div>
+              </div>
+            </div>
+  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-sm btn-secondary m-1" (click)="onCancel()">Cancel</button>
+              <button type="submit" class="btn btn-sm btn-primary m-1" [disabled]="employeeForm.invalid">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
