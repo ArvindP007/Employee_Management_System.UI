@@ -1,0 +1,15 @@
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 18px;
+    text-decoration: none;
+  }
+  .sidebar-nav{
+    margin-top: 40px;
+    margin-left: 40px;
+    display: block;
+  }
+
+  .nav-item{
+    align-items: center;
+  }

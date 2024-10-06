@@ -7,17 +7,25 @@
 </header>
 
 <section class="d-flex">
-  <div class="bg-dark" style="width: 20%;  height: 505px; display: flex;">
-    <ul class="nav flex-column">
+  <div class="sidebar sidebar-dark bg-dark" style="width: 20%;  height: 505px; display: flex;">
+    <ul class="sidebar-nav">
       <li class="nav-item">
-        <a href="#home">Home</a>
+        <a routerLink="/home">Home</a>
       </li>
       <li class="nav-item">
-        <a href="#login">Login</a>
+        <a routerLink="/login">Login</a>
+      </li>
+      <!-- <li *ngIf="!isUserAuthenticated()"><a routerLink="/login">Login</a></li>
+      <li *ngIf="isUserAuthenticated()"><a class="logout" (click)="logOut()">Log out</a></li> -->
+      <li class="nav-item">
+        <a routerLink="/employees">Employee</a>
+      </li>
+      <li class="nav-item">
+        <a href="#about">About</a>
       </li>
     </ul>
   </div>
-  <div class="container flex-column" style="width: 80%; padding: 20px;">
+  <div class="container" style="width: 80%;">
     <router-outlet></router-outlet>
   </div>
 </section>
